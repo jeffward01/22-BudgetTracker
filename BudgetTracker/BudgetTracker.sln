@@ -5,6 +5,28 @@ VisualStudioVersion = 14.0.23107.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BudgetTracker.API", "BudgetTracker.API\BudgetTracker.API.csproj", "{E1CDCF9D-4623-439D-8084-87EF9A9B7D87}"
 EndProject
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "BudgetTracker.Client", "BudgetTracker.Client\", "{05B56BBE-CB05-47CE-856B-F6C3A3888044}"
+	ProjectSection(WebsiteProperties) = preProject
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.5.2"
+		Debug.AspNetCompiler.VirtualPath = "/localhost_53730"
+		Debug.AspNetCompiler.PhysicalPath = "BudgetTracker.Client\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_53730\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/localhost_53730"
+		Release.AspNetCompiler.PhysicalPath = "BudgetTracker.Client\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_53730\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		VWDPort = "53730"
+		SlnRelativePath = "BudgetTracker.Client\"
+		DefaultWebSiteLanguage = "Visual C#"
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +37,10 @@ Global
 		{E1CDCF9D-4623-439D-8084-87EF9A9B7D87}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E1CDCF9D-4623-439D-8084-87EF9A9B7D87}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E1CDCF9D-4623-439D-8084-87EF9A9B7D87}.Release|Any CPU.Build.0 = Release|Any CPU
+		{05B56BBE-CB05-47CE-856B-F6C3A3888044}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{05B56BBE-CB05-47CE-856B-F6C3A3888044}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{05B56BBE-CB05-47CE-856B-F6C3A3888044}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{05B56BBE-CB05-47CE-856B-F6C3A3888044}.Release|Any CPU.Build.0 = Debug|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

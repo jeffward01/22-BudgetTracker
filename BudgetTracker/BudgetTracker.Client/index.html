@@ -6,20 +6,226 @@
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap-theme.min.css" />
     <link rel="stylesheet" href="bower_components/toastr/toastr.min.css" />
+    <link rel="stylesheet" href="css/main.css" />
 </head>
 <body ng-controller="ToDoController">
 
-    <input type="text" ng-model="newToDo" />
+    <!-- JumboTron-->
+    <div class="jumbotron jumbotron-main mid-screen Intro">
+        <h1 class="center">Budget Tracker</h1>
+        <p class="center">Track your way to Financial Freedom</p>
+        <p><a class="btn btn-primary btn-lg mainBtn-center" href="#" id="reveal" role="button">Start Tracking</a></p>
+    </div>
 
-    <button>Add</button>
+    <!-- Main Container -->
+    <div class="mainContainer">
+
+        <!--Main Nav-->
+        <div class="row">
+            <nav class="navbar navbar-primary navbar-fixed-top">
+                <div class="container-fluid">
+                    <ul class="nav nav-pills">
+                        <li role="presentation" data-bind="click: $root.Home" class="active"><a href="#">Home</a></li>
+
+                        <!--
+                        <li role="presentation"><a class="AddAccountBtn" data-bind="click: $root.AddAccount" href="#"><span class="glyphicon-user glyphicon"></span> Create an Account</a></li>
+                        <li data-bind="visible: login() == 'logged.in'" class="LinkTwitterBtn" role="presentation"><a href="#" data-toggle="modal" data-target="#linkTwitterModal"><span class="glyphicon glyphicon-refresh"></span> Link your Twitter</a></li>
+                            -->
+                    </ul>
+                </div>
+                <!-- /.container-fluid -->
+            </nav>
+        </div>
+
+        <!--Page Header (Jumbotron)-->
+        <div class="jumbotron center">
+            <h1>Budget Tracker</h1>
+        </div>
+
+        <div class="entryArea">
+            <div class="col-lg-12 col-md-12 main-Entry ">
+                <div class="col-md-6 col-lg-6">
+                    <div class="panel panel-success">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">Income Entries</h3>
+                        </div>
+                        <div class="panel-body">
+                            <div class="panel-input-area">
+                                <div class="col-md-12">
+                                    <!--Description Input Area-->
+                                    <div class="IncomeInput1">
+                                        <div class="form-group">
+                                            <label for="InputDescription" class="col-lg-2 modal-text control-label"><strong>Description</strong></label>
+                                            <div class="col-lg-10">
+                                                <input type="text" class="form-control" required id="InputDescription" placeholder="Enter your Description">
+                                                <small class="req">*required</small>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Amount Input Area-->
+                                    <div class="IncomeInput2">
+                                        <div class="form-group">
+                                            <label for="InputAmount" class="col-lg-2 modal-text control-label"><strong>Amount</strong></label>
+                                            <div class="col-lg-10">
+                                                <div class="input-group">
+                                                    <span class="input-group-addon">$</span>
+                                                    <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)">
+                                                    <span class="input-group-addon">.00</span>
+
+                                                </div>
+                                                <small class="req">*required</small>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!--Addd Income Button-->
+                                    <button type="button" class="btn btn-success btn-lg btn-Income btn-block"><span class="glyphion glyphicon-plus"> </span> Add Income</button>
 
 
-    
+                                    <!--Table-->
+                                    <div class="tableContainer">
 
-    <script src="bower_components/angular/angular.min.js"></script>
-    <script src="bower_components/animateCSS/dist/jquery.animatecss.min.js"></script>
-    <script src="js/app.js"></script>
-    <script src="js/BudgetTracker.ctrl.js"></script>
+                                        <table class="table table-striped">
+                                            <thead>
+                                                <tr>
+                                                    <th>Description</th>
+                                                    <th>Amount</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>Paycheck</td>
+                                                    <td>$4,000</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+
+
+                                </div>
+
+
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+
+                <div class="col-md-6 col-lg-6">
+                    <div class="panel panel-danger">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">Expense Entries</h3>
+                        </div>
+                        <div class="panel-body">
+                            <div class="panel-input-area">
+                                <div class="col-md-12">
+                                    <!--Description Input Area-->
+                                    <div class="IncomeInput1">
+                                        <div class="form-group">
+                                            <label for="InputDescription" class="col-lg-2 modal-text control-label"><strong>Description</strong></label>
+                                            <div class="col-lg-10">
+                                                <input type="text" class="form-control" required id="InputDescription" placeholder="Enter your Description">
+                                                <small class="req">*required</small>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Amount Input Area-->
+                                    <div class="IncomeInput2">
+                                        <div class="form-group">
+                                            <label for="InputAmount" class="col-lg-2 modal-text control-label"><strong>Amount</strong></label>
+                                            <div class="col-lg-10">
+                                                <div class="input-group">
+                                                    <span class="input-group-addon">$</span>
+                                                    <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)">
+                                                    <span class="input-group-addon">.00</span>
+
+                                                </div>
+                                                <small class="req">*required</small>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!--Addd Income Button-->
+                                    <button type="button" class="btn btn-danger btn-lg btn-Income btn-block"><span class="glyphion glyphicon-plus"> </span> Add Expense</button>
+
+
+                                    <!--Table-->
+                                    <div class="tableContainer">
+
+                                        <table class="table table-striped">
+                                            <thead>
+                                                <tr>
+                                                    <th>Description</th>
+                                                    <th>Amount</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>Rent</td>
+                                                    <td>$1,500</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Electric Bill</td>
+                                                    <td>$400</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Food</td>
+                                                    <td>$300</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Cell Phone</td>
+                                                    <td>$80</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Internet</td>
+                                                    <td>$100</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Gas</td>
+                                                    <td>$150</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!--Summary Area-->
+            <div class="summaryContainer">
+            <div class="col-md-12 col-lg-12 center summaryArea">
+                <div class="panel panel-primary">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Summary</h3>
+                    </div>
+                    <div class="panel-body">
+                        Panel content
+                    </div>
+                </div>
+
+            </div>
+            </div>
+
+
+         </div>
+      </div>
+        <script src="bower_components/angular/angular.min.js"></script>
+        <script src="bower_components/jquery/dist/jquery.min.js"></script>
+        <script src="bower_components/jquery-ui/jquery-ui.min.js"></script>
+        <script src="bower_components/animateCSS/dist/jquery.animatecss.min.js"></script>
+        <script src="js/app.js"></script>
+        <script src="js/BudgetTracker.ctrl.js"></script>
 
 
 </body>

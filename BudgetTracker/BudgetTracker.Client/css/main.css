@@ -1,0 +1,80 @@
+﻿body {
+}
+
+
+.center {
+    margin: 0 auto;
+    text-align: center;
+}
+
+/* Intro Jumbotron */
+.mid-screen {
+    display: inline-block;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 600px;
+    height: 100px;
+    margin: auto;
+    background-color: #f3f3f3;
+}
+
+.mainBtn-center {
+    margin: 0 auto;
+    text-align: center;
+    margin-left: 200px;
+}
+
+.jumbotron-main {
+    background: none;
+    color: white;
+}
+
+
+/*Main Container*/
+.mainContainer {
+    margin: 0 auto;
+    width: 80%;
+}
+
+
+/*Entry Area*/
+.entryArea{
+    margin-top:50px;
+
+}
+
+.req{
+    color: lightcoral;
+    font-style: italic;
+}
+
+.panel-title{
+    color:black;
+}
+
+.IncomeInput1{
+    padding-bottom: 50px;
+    margin-bottom:50px;
+
+}
+.IncomeInput2{
+    padding-bottom:30px;
+    margin-bottom:30px;
+}
+
+/*Tabel*/
+.tableContainer{
+    margin-top:50px;
+}
+.summaryContainer{
+   
+    margin:0 auto;
+    width: 40%;
+}
+.main-Entry{
+   
+    padding-bottom:25px;
+}
