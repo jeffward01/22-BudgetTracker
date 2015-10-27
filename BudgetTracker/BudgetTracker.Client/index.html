@@ -1,5 +1,5 @@
 ﻿<!DOCTYPE html>
-<html ng-app="ToDoApp">
+<html ng-app="BudgetTrackerApp">
 <head>
     <title></title>
     <meta charset="utf-8" />
@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="bower_components/toastr/toastr.min.css" />
     <link rel="stylesheet" href="css/main.css" />
 </head>
-<body ng-controller="ToDoController">
+<body ng-controller="BudgetTrackerController">
 
     <!-- JumboTron-->
     <div class="jumbotron jumbotron-main mid-screen Intro">
@@ -42,7 +42,7 @@
             <h1>Budget Tracker</h1>
         </div>
 
-        <div class="entryArea">
+        <div class="row entryArea">
             <div class="col-lg-12 col-md-12 main-Entry ">
                 <div class="col-md-6 col-lg-6">
                     <div class="panel panel-success">
@@ -58,7 +58,7 @@
                                         <div class="form-group">
                                             <label for="InputDescription" class="col-lg-2 modal-text control-label"><strong>Description</strong></label>
                                             <div class="col-lg-10">
-                                                <input type="text" class="form-control" required id="InputDescription" placeholder="Enter your Description">
+                                                <input type="text" class="form-control"   id="InputDescription" placeholder="Enter your Description" ng-model="newIncomeEntry.Description">
                                                 <small class="req">*required</small>
                                             </div>
                                         </div>
@@ -71,7 +71,7 @@
                                             <div class="col-lg-10">
                                                 <div class="input-group">
                                                     <span class="input-group-addon">$</span>
-                                                    <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)">
+                                                    <input type="text" class="form-control" id="InputAmount" aria-label="Amount (to the nearest dollar)" ng-model="newIncomeEntry.Amount">
                                                     <span class="input-group-addon">.00</span>
 
                                                 </div>
@@ -80,8 +80,8 @@
                                         </div>
                                     </div>
 
-                                    <!--Addd Income Button-->
-                                    <button type="button" class="btn btn-success  btn-pad btn-lg btn-Income btn-block"><span class="glyphion glyphicon-plus"> </span> Add Income</button>
+                                    <!--Add Income Button-->
+                                    <button type="button" class="btn btn-success  btn-pad btn-lg btn-Income btn-block" ng-click="addIncome()"><span class="glyphion glyphicon-plus"> </span> Add Income</button>
 
                                     <!--Table-->
                                     <div class="tableContainer">
@@ -94,9 +94,9 @@
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                <tr>
-                                                    <td>Paycheck</td>
-                                                    <td>$4,000</td>
+                                                <tr ng-repeat="entry in incomeEntries">
+                                                    <td>{{entry.Description}}</td>
+                                                    <td>{{entry.Amount}}</td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -130,7 +130,7 @@
                                         <div class="form-group">
                                             <label for="InputDescription" class="col-lg-2 modal-text control-label"><strong>Description</strong></label>
                                             <div class="col-lg-10">
-                                                <input type="text" class="form-control" required id="InputDescription" placeholder="Enter your Description">
+                                                <input type="text" class="form-control" ng-model="newExpenseEntry.Description" id="InputDescription" placeholder="Enter your Description">
                                                 <small class="req">*required</small>
                                             </div>
                                         </div>
@@ -143,7 +143,7 @@
                                             <div class="col-lg-10">
                                                 <div class="input-group">
                                                     <span class="input-group-addon">$</span>
-                                                    <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)">
+                                                    <input type="text"id="InputExpenseAmount" ng-model="newExpenseEntry.Amount" class="form-control" aria-label="Amount (to the nearest dollar)">
                                                     <span class="input-group-addon">.00</span>
 
                                                 </div>
@@ -152,8 +152,8 @@
                                         </div>
                                     </div>
 
-                                    <!--Addd Income Button-->
-                                    <button type="button" class="btn btn-pad btn-danger btn-lg btn-Income btn-block"><span class="glyphion glyphicon-plus"> </span> Add Expense</button>
+                                    <!--Addd Expense Button-->
+                                    <button type="button" class="btn btn-pad btn-danger btn-lg btn-Income btn-block" ng-click="addExpense()"><span class="glyphion glyphicon-plus"> </span> Add Expense</button>
 
 
                                     <!--Table-->
@@ -167,30 +167,11 @@
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                <tr>
-                                                    <td>Rent</td>
-                                                    <td>$1,500</td>
+                                                <tr ng-repeat="entry in expenseEntries"> 
+                                                    <td >{{entry.Description}}</td>
+                                                    <td>{{entry.Amount}}</td>
                                                 </tr>
-                                                <tr>
-                                                    <td>Electric Bill</td>
-                                                    <td>$400</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Food</td>
-                                                    <td>$300</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Cell Phone</td>
-                                                    <td>$80</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Internet</td>
-                                                    <td>$100</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Gas</td>
-                                                    <td>$150</td>
-                                                </tr>
+                                               
                                             </tbody>
                                         </table>
                                     </div>
@@ -279,6 +260,7 @@
         <script src="bower_components/jquery/dist/jquery.min.js"></script>
         <script src="bower_components/jquery-ui/jquery-ui.min.js"></script>
         <script src="bower_components/animateCSS/dist/jquery.animatecss.min.js"></script>
+    <script src="bower_components/toastr/toastr.min.js"></script>
         <script src="js/app.js"></script>
         <script src="js/BudgetTracker.ctrl.js"></script>
 
