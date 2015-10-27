@@ -24,7 +24,7 @@ angular.module('BudgetTrackerApp', [])
 
 //if Total less is less than 0
 $(document).ready(function () {
-    var sum = $('#LeftAfterSpending').val();
+    var sum = parseInt($('#LeftAfterSpending').val());
     if(sum < 0 )
     {
         $(sum).css('color', 'red');

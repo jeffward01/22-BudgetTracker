@@ -8,19 +8,23 @@ angular.module('BudgetTrackerApp').controller('BudgetTrackerController', functio
     $scope.newExpenseEntry = {};
     $scope.negativeNumber = false;
 
-    
+
+    $scope.modalShown = false;
+    $scope.toggleModal = function () {
+        $scope.modalShown = !$scope.modalShown;
+    }
 
     $scope.addIncome = function addIncome() {
-        if ($scope.newIncomeEntry.Description == null || $scope.newIncomeEntry.Amount == null)
-        {
+        if ($scope.newIncomeEntry.Description == null || $scope.newIncomeEntry.Amount == null) {
             Command: toastr["error"]("Please enter an Income 'Description' and 'Amount'.");
+
 
             toastr.options = {
                 "closeButton": false,
                 "debug": false,
                 "newestOnTop": false,
                 "progressBar": false,
-                "positionClass": "toast-top-right",
+                "positionClass": "toast-top-full-width",
                 "preventDuplicates": false,
                 "onclick": null,
                 "showDuration": "300",
@@ -50,7 +54,7 @@ angular.module('BudgetTrackerApp').controller('BudgetTrackerController', functio
                 "debug": false,
                 "newestOnTop": false,
                 "progressBar": false,
-                "positionClass": "toast-top-right",
+                "positionClass": "toast-top-full-width",
                 "preventDuplicates": false,
                 "onclick": null,
                 "showDuration": "300",
@@ -87,30 +91,70 @@ angular.module('BudgetTrackerApp').controller('BudgetTrackerController', functio
         return sum;
     };
 
-    $scope.CalcualteSum = function (x, y){
-        $scope.sum =  x - y;
-        if ($scope.sum < 0) {
-            $scope.negativeNumber = true;
-        }
-        else {
-            $scope.negativeNumber = false;
-        }
-
-  
-    }
 
     $scope.deleteEntry = function (entry, string) {
-        alert("RAN!");
+
         if (string == "income") {
             $scope.incomeEntries.splice($scope.incomeEntries.indexOf(entry), 1);
+            deleteAlert();
         }
         else {
             $scope.expenseEntries.splice($scope.expenseEntries.indexOf(entry), 1);
             console.log("Deleted");
+            deleteAlert();
         }
     }
 
-    $scope.sum = $scope.CalculateAmount($scope.incomeEntries) - $scope.CalculateAmount($scope.expenseEntries);
+    function deleteAlert() {
+        Command: toastr["error"]("Your Entry was Deleted");
+        toastr.options = {
+            "closeButton": false,
+            "debug": false,
+            "newestOnTop": false,
+            "progressBar": false,
+            "positionClass": "toast-top-full-width",
+            "preventDuplicates": false,
+            "onclick": null,
+            "showDuration": "300",
+            "hideDuration": "1000",
+            "timeOut": "5000",
+            "extendedTimeOut": "1000",
+            "showEasing": "swing",
+            "hideEasing": "linear",
+            "showMethod": "fadeIn",
+            "hideMethod": "fadeOut"
+
+        }
+    }
+
+    $scope.editEntry = function (entry, string) {
+
+        if (string == "income") {
+
+            deleteAlert();
+        }
+        else {
+            $scope.expenseEntries.splice($scope.expenseEntries.indexOf(entry), 1);
+            console.log("Deleted");
 
 
-}); // End Controller
+        }
+
+        $scope.sum = $scope.CalculateAmount($scope.incomeEntries) - $scope.CalculateAmount($scope.expenseEntries);
+
+        function checkfornegative() {
+
+            var sum = parseInt($('#LeftAfterSpending').val());
+            if (sum < 0) {
+                $(sum).css('color', 'red');
+            }
+        }
+        checkfornegative();s
+
+
+    }; // End Controller
+
+ 
+
+});
+

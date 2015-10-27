@@ -25,7 +25,7 @@
             <nav class="navbar navbar-primary navbar-fixed-top">
                 <div class="container-fluid">
                     <ul class="nav nav-pills">
-                        <li role="presentation"  class="active homeBtn"><a href="#">Home</a></li>
+                        <li role="presentation" class="active homeBtn"><a href="#">Home</a></li>
 
                         <!--
                         <li role="presentation"><a class="AddAccountBtn" data-bind="click: $root.AddAccount" href="#"><span class="glyphicon-user glyphicon"></span> Create an Account</a></li>
@@ -58,7 +58,7 @@
                                         <div class="form-group">
                                             <label for="InputDescription" class="col-lg-2 modal-text control-label"><strong>Description</strong></label>
                                             <div class="col-lg-10">
-                                                <input type="text" class="form-control"   id="InputDescription" placeholder="Enter your Description" ng-model="newIncomeEntry.Description">
+                                                <input type="text" class="form-control" id="InputDescription" placeholder="Enter your Description" ng-model="newIncomeEntry.Description">
                                                 <small class="req">*required</small>
                                             </div>
                                         </div>
@@ -98,8 +98,8 @@
                                                 <tr ng-repeat="entry in incomeEntries">
                                                     <td>{{entry.Description}}</td>
                                                     <td>{{entry.Amount | currency}}</td>
-                                                   <td>
-                                                      <button type="button" ng-click="deleteEntry(entry, 'income')" class="btn btn-danger">Remove</button>
+                                                    <td>
+                                                        <button type="button" ng-click="deleteEntry(entry, 'income')" class="btn btn-danger">Remove</button>
                                                     </td>
                                                 </tr>
                                             </tbody>
@@ -147,7 +147,7 @@
                                             <div class="col-lg-10">
                                                 <div class="input-group">
                                                     <span class="input-group-addon">$</span>
-                                                    <input type="text"id="InputExpenseAmount" ng-model="newExpenseEntry.Amount" class="form-control" aria-label="Amount (to the nearest dollar)">
+                                                    <input type="text" id="InputExpenseAmount" ng-model="newExpenseEntry.Amount" class="form-control" aria-label="Amount (to the nearest dollar)">
                                                     <span class="input-group-addon">.00</span>
 
                                                 </div>
@@ -192,84 +192,88 @@
 
             <!--Summary Area-->
             <div class="summaryContainer">
-            <div class="col-md-12 col-lg-12 center summaryArea">
-                <div class="panel panel-primary">
-                    <div class="panel-heading">
-                        <h3 class="panel-title">Summary</h3>
-                    </div>
-                    <div class="panel-body">
-                        <div class="row">
-                            <div class="col-md-12 col-lg-12">
-                                <div class="col-md-6 col-lg-6">
-                                    <table class="table table-striped">
-                                        <thead>
-                                            <tr>
-                                                <th class="center">Total Income</th>
-
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td>{{CalculateAmount(incomeEntries) | currency}}</td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-
-                                </div>
-                                <div class="col-md-6 col-lg-6">
-                                    <table class="table table-striped">
-                                        <thead>
-                                            <tr>
-                                                <th class="center">Total Expense Amount</th>
-
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td>{{CalculateAmount(expenseEntries) | currency}}</td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
+                <div class="col-md-12 col-lg-12 center summaryArea">
+                    <div class="panel panel-primary">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">Summary</h3>
+                        </div>
+                        <div class="panel-body">
                             <div class="row">
-                                <div class="center col-lg-12 col-md-12">
-                                    <table class="table table-striped">
-                                        <thead>
-                                            <tr>
-                                                <th class="center">Left After Spending</th>
+                                <div class="col-md-12 col-lg-12">
+                                    <div class="col-md-6 col-lg-6">
+                                        <table class="table table-striped">
+                                            <thead>
+                                                <tr>
+                                                    <th class="center">Total Income</th>
 
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td id=""> <!--<span ng-class="{red: $scope.negativeNumber == true}">-->{{ CalculateAmount(incomeEntries) - CalculateAmount(expenseEntries) | currency}}</span></td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>{{CalculateAmount(incomeEntries) | currency}}</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+
+                                    </div>
+                                    <div class="col-md-6 col-lg-6">
+                                        <table class="table table-striped">
+                                            <thead>
+                                                <tr>
+                                                    <th class="center">Total Expense Amount</th>
+
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>{{CalculateAmount(expenseEntries) | currency}}</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="center col-lg-12 col-md-12">
+                                        <table class="table table-striped">
+                                            <thead>
+                                                <tr>
+                                                    <th class="center">Left After Spending</th>
+
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td id="" >{{ CalculateAmount(incomeEntries) - CalculateAmount(expenseEntries) | currency}}</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+
+                                    </div>
 
                                 </div>
 
                             </div>
 
                         </div>
-
                     </div>
+
                 </div>
-
-            </div>
             </div>
 
 
-         </div>
-      </div>
-        <script src="bower_components/angular/angular.min.js"></script>
-        <script src="bower_components/jquery/dist/jquery.min.js"></script>
-        <script src="bower_components/jquery-ui/jquery-ui.min.js"></script>
-        <script src="bower_components/animateCSS/dist/jquery.animatecss.min.js"></script>
+
+
+
+
+        </div>
+    </div>
+    <script src="bower_components/angular/angular.min.js"></script>
+    <script src="bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="bower_components/jquery-ui/jquery-ui.min.js"></script>
+    <script src="bower_components/animateCSS/dist/jquery.animatecss.min.js"></script>
     <script src="bower_components/toastr/toastr.min.js"></script>
-        <script src="js/app.js"></script>
-        <script src="js/BudgetTracker.ctrl.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/BudgetTracker.ctrl.js"></script>
 
 
 </body>
