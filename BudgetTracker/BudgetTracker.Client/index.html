@@ -96,7 +96,7 @@
                                             <tbody>
                                                 <tr ng-repeat="entry in incomeEntries">
                                                     <td>{{entry.Description}}</td>
-                                                    <td>{{entry.Amount}}</td>
+                                                    <td>{{entry.Amount | currency}}</td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -167,11 +167,10 @@
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                <tr ng-repeat="entry in expenseEntries"> 
-                                                    <td >{{entry.Description}}</td>
-                                                    <td>{{entry.Amount}}</td>
+                                                <tr ng-repeat="entry in expenseEntries">
+                                                    <td>{{entry.Description}}</td>
+                                                    <td>{{entry.Amount | currency}}</td>
                                                 </tr>
-                                               
                                             </tbody>
                                         </table>
                                     </div>
@@ -203,7 +202,7 @@
                                         </thead>
                                         <tbody>
                                             <tr>
-                                                <td>$4,000</td>
+                                                <td>{{CalculateAmount(incomeEntries) | currency}}</td>
                                             </tr>
                                         </tbody>
                                     </table>
@@ -213,13 +212,13 @@
                                     <table class="table table-striped">
                                         <thead>
                                             <tr>
-                                                <th class="center">Total Expenses</th>
+                                                <th class="center">Total Expense Amount</th>
 
                                             </tr>
                                         </thead>
                                         <tbody>
                                             <tr>
-                                                <td>$2,485</td>
+                                                <td>{{CalculateAmount(expenseEntries) | currency}}</td>
                                             </tr>
                                         </tbody>
                                     </table>
@@ -236,7 +235,7 @@
                                         </thead>
                                         <tbody>
                                             <tr>
-                                                <td>$1,514.01</td>
+                                                <td id="LeftAfterSpending">{{ CalculateAmount(incomeEntries) - CalculateAmount(expenseEntries) | currency}}</td>
                                             </tr>
                                         </tbody>
                                     </table>
