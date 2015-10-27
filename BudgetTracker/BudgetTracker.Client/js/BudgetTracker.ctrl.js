@@ -87,13 +87,19 @@ angular.module('BudgetTrackerApp').controller('BudgetTrackerController', functio
         return sum;
     };
 
+    $scope.CalcualteSum = function (x, y){
+        $scope.sum =  x - y;
+        if ($scope.sum < 0) {
+            $scope.negativeNumber = true;
+        }
+        else {
+            $scope.negativeNumber = false;
+        }
+
+  
+    }
 
     $scope.sum = $scope.CalculateAmount($scope.incomeEntries) - $scope.CalculateAmount($scope.expenseEntries);
-    if ($scope.sum < 0) {
-        $scope.negativeNumber = true;
-    }
-    else {
-        $scope.negativeNumber = false;
-    }
+
 
 }); // End Controller
