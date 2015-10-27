@@ -99,6 +99,17 @@ angular.module('BudgetTrackerApp').controller('BudgetTrackerController', functio
   
     }
 
+    $scope.deleteEntry = function (entry, string) {
+        alert("RAN!");
+        if (string == "income") {
+            $scope.incomeEntries.splice($scope.incomeEntries.indexOf(entry), 1);
+        }
+        else {
+            $scope.expenseEntries.splice($scope.expenseEntries.indexOf(entry), 1);
+            console.log("Deleted");
+        }
+    }
+
     $scope.sum = $scope.CalculateAmount($scope.incomeEntries) - $scope.CalculateAmount($scope.expenseEntries);
 
 

@@ -91,12 +91,16 @@
                                                 <tr>
                                                     <th>Description</th>
                                                     <th>Amount</th>
+                                                    <th></th>
                                                 </tr>
                                             </thead>
                                             <tbody>
                                                 <tr ng-repeat="entry in incomeEntries">
                                                     <td>{{entry.Description}}</td>
                                                     <td>{{entry.Amount | currency}}</td>
+                                                   <td>
+                                                      <button type="button" ng-click="deleteEntry(entry, 'income')" class="btn btn-danger">Remove</button>
+                                                    </td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -164,12 +168,16 @@
                                                 <tr>
                                                     <th>Description</th>
                                                     <th>Amount</th>
+                                                    <th></th>
                                                 </tr>
                                             </thead>
                                             <tbody>
                                                 <tr ng-repeat="entry in expenseEntries">
                                                     <td>{{entry.Description}}</td>
                                                     <td>{{entry.Amount | currency}}</td>
+                                                    <td>
+                                                        <button type="button" ng-click="deleteEntry(entry, expense)" class="btn btn-danger">Remove</button>
+                                                    </td>
                                                 </tr>
                                             </tbody>
                                         </table>
