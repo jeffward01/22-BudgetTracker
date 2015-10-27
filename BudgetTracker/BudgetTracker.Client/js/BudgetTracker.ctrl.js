@@ -6,6 +6,7 @@ angular.module('BudgetTrackerApp').controller('BudgetTrackerController', functio
     $scope.expenseEntries = [];
     $scope.newIncomeEntry = {};
     $scope.newExpenseEntry = {};
+    $scope.negativeNumber = false;
 
     
 
@@ -74,14 +75,25 @@ angular.module('BudgetTrackerApp').controller('BudgetTrackerController', functio
         var sum = 0;
 
         for (var i = 0; i < entries.length; i++) {
-            sum += parseFloat(entries[i].Amount);
+            sum += parseInt(entries[i].Amount);
+            if ($scope.sum < 0) {
+                $scope.negativeNumber = true;
+            }
+            else {
+                $scope.negativeNumber = false;
+            }
         }
 
         return sum;
     };
 
 
-
-
+    $scope.sum = $scope.CalculateAmount($scope.incomeEntries) - $scope.CalculateAmount($scope.expenseEntries);
+    if ($scope.sum < 0) {
+        $scope.negativeNumber = true;
+    }
+    else {
+        $scope.negativeNumber = false;
+    }
 
 }); // End Controller

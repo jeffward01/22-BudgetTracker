@@ -235,7 +235,7 @@
                                         </thead>
                                         <tbody>
                                             <tr>
-                                                <td id="LeftAfterSpending">{{ CalculateAmount(incomeEntries) - CalculateAmount(expenseEntries) | currency}}</td>
+                                                <td id=""><span ng-class="{red: $scope.negativeNumber == true}">{{ CalculateAmount(incomeEntries) - CalculateAmount(expenseEntries) | currency}}</span></td>
                                             </tr>
                                         </tbody>
                                     </table>

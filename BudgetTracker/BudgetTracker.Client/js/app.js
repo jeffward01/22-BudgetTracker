@@ -22,3 +22,11 @@ $(".homeBtn").on('click', function () {
 //Start Angular
 angular.module('BudgetTrackerApp', [])
 
+//if Total less is less than 0
+$(document).ready(function () {
+    var sum = $('#LeftAfterSpending').val();
+    if(sum < 0 )
+    {
+        $(sum).css('color', 'red');
+    }
+});
